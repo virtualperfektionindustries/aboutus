@@ -179,6 +179,17 @@ Every hidden room belongs to a numbered **Nonvis facility**. A facility can be d
 | **NONVIS-001** | "Oasis" | Operational. The hidden rooms of the Dust II variants (`de_dust2_long`, and later ones). The name: the facility that brings rain to the desert. Kdanium was discovered and first used here; today Oasis only receives KD-PX shipments like every other facility. |
 | NONVIS-002+ | | Under construction, or already there and you do not know about it. |
 
+### Getting in
+
+The hidden rooms are outside the playable area and are meant to be reached with `noclip`. There is also an official way in, which only works with cheats enabled:
+
+```
+sv_cheats 1
+ent_fire sudo_promote_to_nonvis_employee Teleport
+```
+
+`sudo_promote_to_nonvis_employee` is a `point_teleport` inside the facility (*Entity To Teleport*: `!player`). The name is the joke: VPK Industries is not hiring, unless you have `sudo`. The way back out does not need cheats: a `func_button` on the inside of the door (*Use Activates*) teleports the player back to the playable area.
+
 ## Premium content
 
 VPK Industries sells its weather. Motto: *"The darkness is free. The light costs extra."*

@@ -153,7 +153,7 @@ Our Employee of the Month is, once again, **Daniel K.** Congratulations, Daniel!
 
 Every position is staffed around the clock. Our shift handovers are so efficient that they take zero seconds.
 
-**Careers:** we are currently fully staffed. We have always been fully staffed.
+**Careers:** we are currently fully staffed. We have always been fully staffed. Exceptional candidates with `sudo` rights may apply directly through the console.
 
 ## Our facilities
 
