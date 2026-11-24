@@ -10,6 +10,7 @@ The Python scripts that generate every image in [`../assets/`](../assets/). They
 | `noclip_screens.py` | the monitor screens of A.T.M.O.S., F.O.R.E.C.A.S.T., S.T.R.A.T.O.S. and V.I.G.I.L. |
 | `plates.py` | the machine plates |
 | `stickers.py` | the die-cut machine stickers |
+| `square.py` | the square, material-ready copies in `materials/` (`python3 tools/square.py assets materials`) |
 | `door_sign.py`, `emitter_sign.py`, `crates.py` | the NONVIS-001 door sign, the emitter warning, the KD-PX waybill and pictograms |
 | `posters.py` … `posters4.py`, `poster_milk.py`, `poster_milk_notice.py`, `poster_notices.py` | the posters and public notices |
 | `newspapers.py` … `newspapers5.py` | the newspaper front pages (`newspapers.py` holds the shared layout; `newspapers2.py` adds the photo version) |

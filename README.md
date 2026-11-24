@@ -18,6 +18,7 @@ For the same content written as the company's own promo brochure, see [lore/broc
 | [`assets/signs/`](./assets/signs/) | facility door sign, emitter warning, KD-PX crate label and hazard pictograms |
 | [`assets/posters/`](./assets/posters/) | wall posters and public notices |
 | [`assets/newspapers/`](./assets/newspapers/) | newspaper front pages from the Great Global Milk Crisis |
+| [`materials/`](./materials/) | every asset as a square, power-of-two texture for the Material Editor, with a black and white transparency mask where needed |
 | [`photos/`](./photos/) | the AI-generated photo grids used in the newspapers and notices, uncut and cut |
 | [`prompts/`](./prompts/) | the image prompts, so the photo series can be continued |
 | [`tools/`](./tools/) | the Python scripts that generate every image in `assets/` |
