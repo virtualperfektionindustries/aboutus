@@ -28,7 +28,7 @@ For the same content written as the company's own promo brochure, see [lore/broc
 | :--- | :--- | :--- |
 | NONVIS-001 "Oasis" | Dust II variants: [Dust II Long](https://steamcommunity.com/sharedfiles/filedetails/?id=3730804227) | [KDany/cs2-maps](https://github.com/KDany/cs2-maps) |
 
-**Using the assets on a map:** copy an image into the map's addon (e.g. `content/csgo_addons/<map_name>/materials/...`) and make a material from it in the Material Editor. Turn on **Self Illum** for the monitor screens; plates, signs, posters and newspapers do not need it.
+**Using the assets on a map:** copy an image into the map's addon (e.g. `content/csgo_addons/<map_name>/materials/...`) and make a material from it in the Material Editor. Turn on **Self Illum** for the monitor screens; plates, signs, posters and newspapers do not need it. The stickers have a transparent background: enable **Translucent** or **Alpha Test** in their material.
 
 **License:** the same as my maps, [CC BY-NC-SA 4.0](./LICENSE). The photos in `photos/` and in the newspapers were generated with an image AI; they show no real people or companies.
 
@@ -278,7 +278,7 @@ Ideas for props and textures:
 - a framed one-pint banknote on the wall: *"In Cow We Trust"*,
 - a poster: *"Report all milk hoarding."*
 
-Newspaper front pages from the crisis (1024×1448, in [`assets/`](./assets/)). The photos were generated with an image AI, nine at a time as a 3×3 grid, then cut apart and printed onto the pages with a newspaper halftone.
+Newspaper front pages from the crisis (1024×1448, in [`assets/newspapers/`](./assets/newspapers/)). The photos were generated with an image AI, nine at a time as a 3×3 grid, then cut apart and printed onto the pages with a newspaper halftone.
 
 | File | Front page |
 | :--- | :--- |
@@ -342,7 +342,7 @@ The crisis has never officially ended; VPK Industries considers it *"stable"*. A
 
 ## Branding
 
-| Logo | Description | Files ([`assets/`](./assets/)) |
+| Logo | Description | Files ([`assets/logos/`](./assets/logos/)) |
 | :--- | :--- | :--- |
 | **VPK Industries** | A square partitioned like a BSP tree; the first two splits draw a yellow **V**. A nod to the company's BSP Industries past. | `vpk-industries_logo_2048x640.png` (with name and slogan), `vpk-industries_logo_icon_1024.png` (transparent), `vpk-industries_logo_icon_navy_1024.png` |
 | **Nonvis Division** | A wireframe cube with its hidden edges dashed ("never rendered") and an eye in the middle (it sees everything). | `nonvis-division_logo_2048x640.png`, `nonvis-division_logo_icon_1024.png`, `nonvis-division_logo_icon_navy_1024.png` |
@@ -358,7 +358,7 @@ The crisis has never officially ended; VPK Industries considers it *"stable"*. A
 - **Fonts:** Bebas Neue for names and titles, JetBrains Mono for technical text.
 - **Voice:** short, confident sentences, ™ on every product, friendly menace (*"Thank you for not kicking the server."*).
 
-Posters (1024×1536) for the walls of the rooms, same folder:
+Posters (1024×1536) for the walls of the rooms, in [`assets/posters/`](./assets/posters/):
 
 | File | Poster |
 | :--- | :--- |
@@ -414,9 +414,9 @@ Nonvis Division posters (with the Nonvis logo in the footer):
 | Framed banknote | one pint, *"In Cow We Trust"* |
 | Door sign | `NONVIS-001 FACILITY · CODE NAME: OASIS · SECTOR: DUST II · AUTHORIZED PERSONNEL ONLY · PLEASE RETURN TO THE PLAYABLE AREA!`, with both logos (one number per facility) |
 
-## Screens
+## Textures
 
-Screen textures (1024×512, glowing monitors) are in [`assets/`](./assets/):
+Screen textures (1024×512, glowing monitors), in [`assets/screens/`](./assets/screens/):
 
 | File | Machine |
 | :--- | :--- |
@@ -427,7 +427,7 @@ Screen textures (1024×512, glowing monitors) are in [`assets/`](./assets/):
 | `kd-mcs-001_vigil_incident_1024x512.png` | V.I.G.I.L., one incident |
 | `kd-mcs-001_vigil_frame_1024x512.png` | V.I.G.I.L., empty frame for `point_worldtext` lines |
 
-Machine plates (1024×512, brushed metal, not glowing) for the cabinets, same folder:
+Machine plates (1024×512, brushed metal, not glowing) for the cabinets, in [`assets/plates/`](./assets/plates/):
 
 | File | Machine | Detail |
 | :--- | :--- | :--- |
@@ -436,12 +436,21 @@ Machine plates (1024×512, brushed metal, not glowing) for the cabinets, same fo
 | `kd-wx-003_stratos_plate_1024x512.png` | S.T.R.A.T.O.S. | scratched-off old name, handwritten sticky note "DO NOT KICK THE SERVER. AGAIN." |
 | `kd-mcs-001_vigil_plate_1024x512.png` | V.I.G.I.L. | engraved motto, standalone unit |
 
-Facility door sign (1024×512, enamel sign with hazard border), same folder: `nonvis-001_door_sign_1024x512.png` for NONVIS-001 "Oasis".
+Facility door sign (1024×512, enamel sign with hazard border), in [`assets/signs/`](./assets/signs/): `nonvis-001_door_sign_1024x512.png` for NONVIS-001 "Oasis".
 
-KD-PX shipment crates, same folder:
+KD-PX shipment crates, in [`assets/signs/`](./assets/signs/):
 - `kdpx_shipping_label_1024x768.png`: the waybill. From: *[CLASSIFIED]*, to: NONVIS-001 Oasis, contents (DynaRain™ ×22, Splash ×22, smoke), weight *"[?] (not found)"*, carrier *[REDACTED]*, signed by Daniel K., handling boxes (*"Keep dry (ironic)"*, *"Do not lick"*, *"Keep below 0 °K… wait, no."*), barcode `KDPX-404-0001-OASIS`, *"Priority: weather"*.
 - `kdpx_pictogram_<name>_512.png` (transparent, for decals): KD-PX hazard pictograms `kdanium`, `weather` (*contains weather*), `health-hazard` (*may cause deranking*), `radioactive` (*highly radioactive*), `cryogenic` (*keep below 0 °K*), `explosive`.
 
-Emitter warning sign (1024×1024), same folder: `kd-wx-003_emitter_warning_1024x1024.png`, for the side emitter module of S.T.R.A.T.O.S.: *"KD-PX emitter · active emission"*, *"Do not inhale the weather."*, *"Do not block the outlet with your hand, your face or your coffee."*, *"The smoke is not a malfunction."*, minimum distance 2 m.
+Emitter warning sign (1024×1024), in [`assets/signs/`](./assets/signs/): `kd-wx-003_emitter_warning_1024x1024.png`, for the side emitter module of S.T.R.A.T.O.S.: *"KD-PX emitter · active emission"*, *"Do not inhale the weather."*, *"Do not block the outlet with your hand, your face or your coffee."*, *"The smoke is not a malfunction."*, minimum distance 2 m.
 
-To use a screen or plate on a map, copy the image into that map's addon (e.g. `<map_name>/materials/...`) and make a material from it. Turn on **Self Illum** for the screens so they glow in a dark room; the plates do not need it.
+Machine stickers (die-cut, transparent PNG, about 1550×700), in [`assets/stickers/`](./assets/stickers/), one per machine, each with its own shape, accent colour, badge, hazard icon and warning:
+
+| File | Machine | Warning | Part number |
+| :--- | :--- | :--- | :--- |
+| `kd-wx-001_atmos_sticker.png` | A.T.M.O.S. | *"Do not adjust the sun without authorization."* | 1.61803398875 (golden ratio) |
+| `kd-wx-002_forecast_sticker.png` | F.O.R.E.C.A.S.T. | *"Keep coffee away from the probability core."* | 0.90 / 0.10 |
+| `kd-wx-003_stratos_sticker.png` | S.T.R.A.T.O.S. | *"High output emitter. Do not kick the cabinet. Again."* | 2.71828182845 (e) |
+| `kd-mcs-001_vigil_sticker.png` | V.I.G.I.L. | *"This sticker is being monitored."* | 4.04040404040 |
+
+To use a screen or plate on a map, copy the image into that map's addon (e.g. `<map_name>/materials/...`) and make a material from it. Turn on **Self Illum** for the screens so they glow in a dark room; the other textures do not need it. The stickers have a transparent background, so their material needs **Translucent** (or Alpha Test) enabled.
