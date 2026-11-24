@@ -236,7 +236,7 @@ VPK Industries draws no connection between the invention of KD-PX and the crisis
 
 VPK Industries even presented itself as the solution. Its laboratories developed **KD-PX-019 LactoKd™**, a synthetic Kdanium milk that could be produced in unlimited quantities, to satisfy the world's demand and end the shortage.
 
-The launch went exactly as planned, until people drank it. LactoKd™ was made of Kdanium, and Kdanium causes milk cravings: every glass of LactoKd™ made its drinker want two glasses of real milk. Demand rose faster than it had at any point of the crisis. A second batch with *"reduced craving"* was released and caused increased craving. Production could not be sustained, and LactoKd™ was discontinued. The remaining stock is stored somewhere cold and classified, next to the Kd₂O(s).
+The launch went exactly as planned, until people drank it. LactoKd™ was made of Kdanium, and Kdanium causes milk cravings: every glass of LactoKd™ made its drinker want two glasses of real milk. Demand rose faster than it had at any point of the crisis. A second batch with *"reduced craving"* was released and caused increased craving. Production could not be sustained, and LactoKd™ was discontinued. The launch ad still hangs in some VPK facilities; its fine print was the only honest part of the campaign: *"May increase demand for milk."* The remaining stock is stored somewhere cold and classified, next to the Kd₂O(s).
 
 ### VPK Moolah™: the digital milk
 
@@ -408,6 +408,12 @@ Nonvis Division posters (with the Nonvis logo in the footer):
 | `poster_nonvis_this-area-does-not-exist_1024x1536.png` | *"This area does not exist."*: a fully dashed, "not rendered" cube; *"If you can see it, something went wrong."* |
 | `poster_nonvis_clearance-levels_1024x1536.png` | Clearance levels 0–4: player, spectator, noclip, Hammer, Daniel K. *"Your current level: 2. Please leave."* |
 | `poster_nonvis_never-rendered_1024x1536.png` | *"Never rendered. Always running."*: a wireframe mesh sphere, *"We do our best work where you never look."* |
+
+A landscape ad (1536×1024) from the LactoKd™ launch:
+
+| File | Poster |
+| :--- | :--- |
+| `poster_lactokd-ad_1536x1024.png` | The LactoKd™ launch ad: a VPK Industries carton of KD-PX-019 Synthetic Milk next to a full glass. Fine print on the carton: *"May increase demand for milk."* |
 
 ## Texts used in the rooms
 
