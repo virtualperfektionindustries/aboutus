@@ -10,6 +10,8 @@ for f in sorted(glob.glob(os.path.join(src,'*','*.png'))):
     sub=os.path.basename(os.path.dirname(f)); name=os.path.splitext(os.path.basename(f))[0]
     im=Image.open(f).convert('RGBA'); w,h=im.size; side=pow2(max(w,h))
     out=os.path.join(dst,sub); os.makedirs(out,exist_ok=True)
+    k=side/max(w,h)
+    if k!=1: im=im.resize((round(w*k),round(h*k)),Image.LANCZOS); w,h=im.size
     canvas=Image.new('RGBA',(side,side),(0,0,0,0)); canvas.alpha_composite(im,((side-w)//2,(side-h)//2))
     alpha=canvas.getchannel('A'); has_trans=alpha.getextrema()[0]<255
     if has_trans:
