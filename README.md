@@ -14,6 +14,7 @@ For the same content written as the company's own promo brochure, see [lore/broc
 | [`assets/logos/`](./assets/logos/) | VPK Industries and Nonvis Division logos |
 | [`assets/screens/`](./assets/screens/) | glowing monitor screens of the machines |
 | [`assets/plates/`](./assets/plates/) | brushed metal machine plates |
+| [`assets/stickers/`](./assets/stickers/) | die-cut machine stickers (transparent PNG), one per machine |
 | [`assets/signs/`](./assets/signs/) | facility door sign, emitter warning, KD-PX crate label and hazard pictograms |
 | [`assets/posters/`](./assets/posters/) | wall posters and public notices |
 | [`assets/newspapers/`](./assets/newspapers/) | newspaper front pages from the Great Global Milk Crisis |
