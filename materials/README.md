@@ -7,7 +7,7 @@ Every image from [`../assets/`](../assets/), made square for the CS2 Material Ed
 - **Masks** (white where the image is, black where it is transparent): use them as the **Translucency** (or Alpha Test) mask in the material. They are shared, so the addon needs as few image files as possible:
   - Every image of the same size is placed on the canvas the same way, so it has the same mask. These masks are in [`masks/`](./masks/), named after the original size and the canvas: `mask_1024x1536_2048.png` is for every 1024×1536 image on a 2048 canvas.
   - The six hazard pictograms have the same shape, so they share `masks/mask_kdpx_pictogram_512.png`.
-  - Only the images with a shape of their own (stickers, the sticky note, the logo icons) have their own **`<name>_trans.png`** next to their `_color.png`.
+  - Only the images with a shape of their own (stickers, the sticky note, the logo icons, the photographed plates and the stacked newspaper) have their own **`<name>_trans.png`** next to their `_color.png`.
   - Images that are square and fully opaque need no mask.
 
 ## Shared masks
@@ -31,6 +31,9 @@ To find the mask of an image: take the size from its file name (`poster_kdanium_
 ## Own masks
 
 - `logos/nonvis-division_logo_icon_1024_trans.png`
+- `newspapers/newspaper_global-times_great-global-milk-crisis_1024x1412_trans.png`
+- `plates/kd-wx-003_stratos_datasheet_1024x568_trans.png`
+- `plates/kd-wx-003_stratos_plate-photo_1024x601_trans.png`
 - `logos/vpk-industries_logo_icon_1024_trans.png`
 - `stickers/kd-mcs-001_vigil_sticker_trans.png`
 - `stickers/kd-wx-001_atmos_sticker_trans.png`
