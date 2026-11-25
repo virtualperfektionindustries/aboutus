@@ -338,6 +338,8 @@ Newspaper front pages from the crisis (1024×1448, in [`assets/newspapers/`](./a
 | `newspaper_evening-moo_milk-rationed_1024x1448.png` | *The Evening Moo*: "Milk rationed", one glass per person per day |
 | `newspaper_daily-pint_vpk-denies-everything_1024x1448.png` | *The Daily Pint*: "VPK denies everything", a spokesperson with a glass of milk on the podium |
 
+A worn, stacked copy of a world paper (1024×1412, with a transparent edge), `newspaper_global-times_great-global-milk-crisis_1024x1412.png`: *The Global Times*, Monday, 14 July 2003, "The Great Global Milk Crisis: Milk prices skyrocket as global supply collapses", an empty supermarket shelf with a "MILK OUT OF STOCK" sign, and a side column: "Is it linked to KD-PX? While the connection remains unconfirmed, sources within research circles suggest a possible link to the controversial KD-PX element."
+
 ### What comes next
 
 The crisis has never officially ended; VPK Industries considers it *"stable"*. A **Second Milk Crisis** is planned for the winter version: DynaSnow™ freezes the world's milk reserves solid.
@@ -496,6 +498,13 @@ Machine plates (1024×512, brushed metal, not glowing) for the cabinets, in [`as
 | `kd-wx-002_forecast_plate_1024x512.png` | F.O.R.E.C.A.S.T. | engraved motto, uplink to S.T.R.A.T.O.S. |
 | `kd-wx-003_stratos_plate_1024x512.png` | S.T.R.A.T.O.S. | scratched-off old name, handwritten sticky note "DO NOT KICK THE SERVER. AGAIN." |
 | `kd-mcs-001_vigil_plate_1024x512.png` | V.I.G.I.L. | engraved motto, standalone unit |
+
+Two more S.T.R.A.T.O.S. plates, photographed, with rounded corners and a transparent edge:
+
+| File | Plate |
+| :--- | :--- |
+| `kd-wx-003_stratos_plate-photo_1024x601.png` | Riveted, worn name plate: Nonvis Division, *"Seasonal Simulation & Atmospheric Control"*, KD-WX-003 S.T.R.A.T.O.S., *Seasonal Transmission & Regional Atmosphere Takeover System* |
+| `kd-wx-003_stratos_datasheet_1024x568.png` | Data plate with the satellite dish: primary function *seasonal and atmospheric condition control*, operating range *global*, active modules *autumn, winter, spring, summer*, power source *KD-PX*, status *OPERATIONAL*. Footer: *"We own the atmosphere."* |
 
 Facility door sign (1024×512, enamel sign with hazard border), in [`assets/signs/`](./assets/signs/): `nonvis-001_door_sign_1024x512.png` for NONVIS-001 "Oasis".
 
