@@ -440,6 +440,15 @@ Out-of-bounds posters (1024×1400), for the places players should not reach. The
 | `poster_map-boundaries_1024x1400.png` | *"Map boundaries are there for a reason."*: a wireframe boundary box with a hazard-striped floor |
 | `poster_a-perfect-experience_1024x1400.png` | *"A perfect experience, together."*: a VPK city of the future; *"So please, stay in the map."* |
 
+OASIS facility posters, the recruitment and showcase posters of NONVIS-001 (code name OASIS):
+
+| File | Poster |
+| :--- | :--- |
+| `poster_nonvis_oasis_beyond-sight_873x1536.png` | *"NONVIS-001 OASIS. A place beyond sight. A future in focus."*: the atrium with palms and a pool; Advanced Climate Simulation, Dynamic Environment Control, Unmatched Testing Conditions. Footer: *"We own the world. Literally."* |
+| `poster_nonvis_oasis_beyond-sight-wide_1536x971.png` | The landscape version of the atrium poster, with a status plate: *"FACILITY: NONVIS-001 · NAME: OASIS · STATUS: OPERATIONAL"* |
+| `poster_nonvis_oasis_facility_874x1536.png` | *"NONVIS-001 Facility OASIS. Research. Simulate. Optimize."*: the facility from outside, with its weather radar dome; Dynamic Weather Simulation, Atmospheric Control, KD-PX Research, Real-Time Data Analysis. *"A place of balance in an ever-changing world."* |
+| `poster_nonvis_oasis_facility-wide_1536x972.png` | The landscape version: *"A Controlled Environment for a Better Tomorrow."* |
+
 ## Texts used in the rooms
 
 | Where | Text |
