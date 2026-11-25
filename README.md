@@ -414,6 +414,31 @@ A landscape ad (1536×1024) from the LactoKd™ launch:
 | File | Poster |
 | :--- | :--- |
 | `poster_lactokd-ad_1536x1024.png` | The LactoKd™ launch ad: a VPK Industries carton of KD-PX-019 Synthetic Milk next to a full glass. Fine print on the carton: *"May increase demand for milk."* |
+| `poster_lactokd-ad-2_1536x1024.png` | The second LactoKd™ ad, shot in a VPK lab: a cow behind glass in the background and the slogan *"A Brighter Tomorrow. Without Cows."*; the display lists *"100% Synthetic · Animal Free · Planet Friendly · Perfectly Efficient"* |
+
+Square Nonvis Division posters (1024×1024), with the VPK and Nonvis logos:
+
+| File | Poster |
+| :--- | :--- |
+| `poster_nonvis_division_1024x1024.png` | The division poster: a wireframe tower, *"Never rendered. Always running."* |
+| `poster_nonvis_why-see-it_1024x1024.png` | *"Why see it, if you can't?"*: an employee in front of a dashed, unrendered cube |
+| `poster_nonvis_optimization-in-progress_1024x1024.png` | *"Optimization in progress"*: Visibility, Performance, Stability and Your Happiness, all ticked |
+| `poster_nonvis_reality-is-our-playground_1024x1024.png` | *"Reality is our playground."*: a cow floating above a teleport pad |
+| `poster_nonvis_invisible-by-design_1024x1024.png` | *"Invisible by design."*: a wireframe facility |
+| `poster_nonvis_dont-kick-the-server-again_1024x1024.png` | *"Don't kick the server. (Again.)"*: the server rack and the crossed-out boot (Incident Report #002) |
+
+Out-of-bounds posters (1024×1400), for the places players should not reach. They ask you, politely, to return to the playable area:
+
+| File | Poster |
+| :--- | :--- |
+| `poster_how-did-you-get-here_1024x1400.png` | *"How did you get here?"*: *"This area is outside of normal play boundaries."* Footer: *"We know where you should be."* |
+| `poster_stay-within-the-design_1024x1400.png` | *"Stay within the design."*: *"For your safety. For our perfection."* (Nonvis Division) |
+| `poster_exploration-is-encouraged_1024x1400.png` | *"Exploration is encouraged! (within the map)"*: a smiling employee with a thumbs-up; Discover, Enjoy, Stay on track |
+| `poster_beyond-the-map_1024x1400.png` | *"Beyond the map lies nothing but potential."*: the planet from orbit. Footer: *"A brighter tomorrow."* |
+| `poster_outside-the-map_1024x1400.png` | *"Outside the map? That's impressive."*: a VPK security camera; *"Now, please return to the intended area."* |
+| `poster_youre-not-lost_1024x1400.png` | *"You're not lost. You're just… slightly off the map."*: a cow with a VPK tag. Footer: *"Caring for your gameplay experience."* |
+| `poster_map-boundaries_1024x1400.png` | *"Map boundaries are there for a reason."*: a wireframe boundary box with a hazard-striped floor |
+| `poster_a-perfect-experience_1024x1400.png` | *"A perfect experience, together."*: a VPK city of the future; *"So please, stay in the map."* |
 
 ## Texts used in the rooms
 
