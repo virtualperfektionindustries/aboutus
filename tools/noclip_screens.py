@@ -79,8 +79,9 @@ screen("KD-WX-002","WEATHER PROGRAM","F.O.R.E.C.A.S.T.","FULLY OVERRIDDEN RANDOM
 def stratos_body(t):
     y=px(204)
     for tag,tc,name,val,vc in (("[ OK ]",TEAL,"SEASON: SUMMER","LOADED",DIM),("[LIVE]",BLUE,"SEASON: NIGHT","TRANSMITTING",BLUE),
-                               ("[ -- ]",DIM,"SEASON: WINTER","NOT INSTALLED",YELLOW),("[ OK ]",TEAL,"ROOF ARRAY","2 ANT. + 2 DISHES",DIM)):
-        t.text((M,y),tag,font=mono(18),fill=tc); t.text((M+px(84),y),name,font=mono(18),fill=WHITE); t.text((M+px(300),y),val,font=mono(18),fill=vc); y+=px(40)
+                               ("[ -- ]",DIM,"SEASON: WINTER","NOT INSTALLED",YELLOW),("[ OK ]",TEAL,"ROOF ARRAY","2 ANT. + 2 DISHES",DIM),
+                               ("[ ON ]",TEAL,"EMITTER ANTENNA","ACTIVE",TEAL)):
+        t.text((M,y),tag,font=mono(18),fill=tc); t.text((M+px(84),y),name,font=mono(18),fill=WHITE); t.text((M+px(300),y),val,font=mono(18),fill=vc); y+=px(33)
     x2=W//2+px(110)
     t.text((x2,px(204)),"EMITTER OUTPUT",font=mono(14,'SemiBold'),fill=DIM)
     for i in range(12):
@@ -90,8 +91,8 @@ def stratos_body(t):
 screen("KD-WX-003","WEATHER PROGRAM","S.T.R.A.T.O.S.","SEASONAL TRANSMISSION & REGIONAL ATMOSPHERE TAKEOVER SYSTEM",
        [("CORE STATUS  ONLINE",TEAL),("UPLINK: KD-WX-001 / 002",DIM)],
        "SEASON MODULES",stratos_body,
-       ['FORMERLY "RAINMAKER Mk II"','Mk I - DECOMMISSIONED (INCIDENT REPORT #001)'],
-       "DO NOT KICK THE SERVER. AGAIN.","noclip/kd-wx-003_stratos_1024x512.png")
+       ['FORMERLY "RAINMAKER Mk II"'],
+       "KD-PX DYNARAIN IS LOADED, EMITTING...","noclip/kd-wx-003_stratos_1024x512.png")
 
 # ---------- KD-MCS-001 V.I.G.I.L. ----------
 ASSETS=[f"LMP-{i:03d}" for i in range(1,7)]

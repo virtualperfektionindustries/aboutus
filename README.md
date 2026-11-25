@@ -465,7 +465,7 @@ OASIS facility posters, the recruitment and showcase posters of NONVIS-001 (code
 | Screen header | `VPK INDUSTRIES · NONVIS DIVISION`, with the program name below it |
 | Warning | `CLASSIFIED · NONVIS CLEARANCE REQUIRED` |
 | Machine plate | `MODEL KD-WX-003 · DESIGNED BY KDANY · OPERATED BY NONVIS DIVISION` |
-| S.T.R.A.T.O.S. screen | `FORMERLY "RAINMAKER Mk II"` and `Mk I - DECOMMISSIONED (INCIDENT REPORT #001)` |
+| S.T.R.A.T.O.S. screen | `FORMERLY "RAINMAKER Mk II"`, five modules (summer, night, winter, roof array, emitter antenna: `ACTIVE`) and the status line `KD-PX DYNARAIN IS LOADED, EMITTING...` |
 | Wall (optional) | `EST. IN THE GOLDSRC ERA AS BSP INDUSTRIES` |
 | Barrel / tank | `KD-PX-001 · Kd₂O · SYNTHETIC PRECIPITATION AGENT · DO NOT DRINK` |
 | Cooled tank | `KD-PX-005 · Kd₂O(s) · CRYSTALLINE PHASE · KEEP BELOW 0 °K… WAIT, NO.` (the wrong unit is on purpose) |
