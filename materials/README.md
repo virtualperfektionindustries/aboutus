@@ -16,7 +16,7 @@ Every image from [`../assets/`](../assets/), made square for the CS2 Material Ed
 | :--- | ---: | :--- |
 | [`masks/mask_1024x1448_2048.png`](./masks/mask_1024x1448_2048.png) | 36 | newspapers (`newspapers/`) |
 | [`masks/mask_1024x1536_2048.png`](./masks/mask_1024x1536_2048.png) | 29 | portrait posters (`posters/`) |
-| [`masks/mask_1024x512_1024.png`](./masks/mask_1024x512_1024.png) | 12 | plates, screens and the door sign (`plates/`, `screens/`, `signs/`) |
+| [`masks/mask_1024x512_1024.png`](./masks/mask_1024x512_1024.png) | 14 | plates, screens and the door sign (`plates/`, `screens/`, `signs/`) |
 | [`masks/mask_1024x1400_2048.png`](./masks/mask_1024x1400_2048.png) | 8 | out-of-bounds posters (`posters/`) |
 | [`masks/mask_kdpx_pictogram_512.png`](./masks/mask_kdpx_pictogram_512.png) | 6 | the six hazard pictograms (`signs/`) |
 | [`masks/mask_2048x640_2048.png`](./masks/mask_2048x640_2048.png) | 2 | wide logos (`logos/`) |

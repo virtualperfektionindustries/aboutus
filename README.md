@@ -483,6 +483,8 @@ Screen textures (1024×512, glowing monitors), in [`assets/screens/`](./assets/s
 | :--- | :--- |
 | `kd-wx-001_atmos_1024x512.png` | A.T.M.O.S. |
 | `kd-wx-002_forecast_1024x512.png` | F.O.R.E.C.A.S.T. |
+| `kd-wx-001_atmos_summer_1024x512.png` | A.T.M.O.S. for the `env_summer` prefab: active profile `ENV_SUMMER`, `ENV_NIGHT` on standby |
+| `kd-wx-002_forecast_summer_1024x512.png` | F.O.R.E.C.A.S.T. for the `env_summer` prefab: forecast *sunny*, rain and storm 0%, the roll paused until nightfall; clear weather is still removed (Incident #003): *"Sunny. Not clear. There is a difference."* |
 | `kd-wx-003_stratos_1024x512.png` | S.T.R.A.T.O.S. |
 | `kd-wx-003_stratos_summer_1024x512.png` | S.T.R.A.T.O.S. for the `env_summer` prefab: core on standby, emitter idle (0.0 GW), *"Emitter idle. Waiting for nightfall..."* |
 | `kd-mcs-001_vigil_1024x512.png` | V.I.G.I.L., all assets online |

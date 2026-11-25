@@ -6,6 +6,11 @@ def bebas(sz): return ImageFont.truetype('fonts/BebasNeue-Regular.ttf',int(sz*S)
 BG=(12,17,20); STEEL_L=(60,71,82)
 YELLOW=(224,176,48); TEAL=(150,212,199); PINK=(236,162,187); WHITE=(232,240,238); RED=(255,92,72); DIM=(92,122,118); BLUE=(140,185,255)
 def px(v): return int(v*S)
+def tag(t,x,y,word,c,f=None):
+    # "[ OK ]" style tag: the brackets stay in place, the word is centred between them
+    f=f or mono(18); cw=t.textlength("[",font=f)
+    t.text((x,y),"[",font=f,fill=c); t.text((x+5*cw,y),"]",font=f,fill=c)
+    w=t.textlength(word,font=f); t.text((x+cw+(4*cw-w)/2,y),word,font=f,fill=c)
 COMPANY="VPK INDUSTRIES · NONVIS DIVISION"
 
 def screen(code,program,title,subtitle,right,section,body,footer,joke,out):
@@ -46,46 +51,60 @@ def atmos_body(t):
     for i,(n,v) in enumerate(items):
         x=M+(0 if i<3 else px(480)); y=px(204+(i%3)*40)
         t.text((x,y),"[ OK ]",font=mono(18),fill=TEAL); t.text((x+px(84),y),n,font=mono(18),fill=WHITE); t.text((x+px(300),y),v,font=mono(18),fill=DIM)
-screen("KD-WX-001","WEATHER PROGRAM","A.T.M.O.S.","ATMOSPHERIC TUNING & MOOD OVERRIDE STATION",
-       [("ACTIVE PROFILE  ENV_NIGHT",BLUE),("STANDBY: ENV_SUMMER",DIM)],
-       "MAP ENVIRONMENT: 6 / 6 ENTITIES LINKED",atmos_body,
-       ["ENVIRONMENT SYNC: COMPLETE","PROFILE SWITCH REQUIRES FULL REBUILD"],
-       "NATURE IS A SETTING.","noclip/kd-wx-001_atmos_1024x512.png")
+for summer in (False,True):
+    screen("KD-WX-001","WEATHER PROGRAM","A.T.M.O.S.","ATMOSPHERIC TUNING & MOOD OVERRIDE STATION",
+           [("ACTIVE PROFILE  ENV_SUMMER",YELLOW),("STANDBY: ENV_NIGHT",DIM)] if summer else
+           [("ACTIVE PROFILE  ENV_NIGHT",BLUE),("STANDBY: ENV_SUMMER",DIM)],
+           "MAP ENVIRONMENT: 6 / 6 ENTITIES LINKED",atmos_body,
+           ["ENVIRONMENT SYNC: COMPLETE","PROFILE SWITCH REQUIRES FULL REBUILD"],
+           "NATURE IS A SETTING.","noclip/kd-wx-001_atmos%s_1024x512.png"%("_summer" if summer else ""))
 
 # ---------- KD-WX-002 F.O.R.E.C.A.S.T. ----------
-def forecast_body(t):
-    y=px(204); bx=M+px(150); bw=px(300); bh=px(18)
-    for name,pct,col,active in (("RAIN",90,BLUE,True),("STORM",10,YELLOW,False),("CLEAR",None,DIM,False)):
-        t.text((M,y),("> " if active else "  ")+name,font=mono(18),fill=WHITE if active else DIM)
-        t.rectangle([bx,y+px(4),bx+bw,y+px(4)+bh],outline=STEEL_L+(255,),width=px(1))
-        if pct is None:
-            t.text((bx+px(10),y+px(3)),"REMOVED - SEE INCIDENT #003",font=mono(13,'SemiBold'),fill=RED)
-            t.text((bx+bw+px(14),y),"  -",font=mono(18),fill=DIM)
-        else:
-            t.rectangle([bx+px(2),y+px(6),bx+px(2)+int((bw-px(4))*pct/100),y+px(2)+bh],fill=col+(255,))
-            t.text((bx+bw+px(14),y),f"{pct:>3}%",font=mono(18),fill=col)
-        y+=px(40)
-    t.text((M,y+px(6)),"ROLL METHOD: WEIGHTED RANDOM, EVERY ROUND",font=mono(14),fill=DIM)
-    x2=W//2+px(80); y=px(204)
-    for k,v,c in (("CURRENT STATE","RAIN",BLUE),("PRECIP CELLS","ALL ONLINE",TEAL),("LIGHTNING","RANDOM INTERVAL",TEAL),("NEXT REROLL","NEXT ROUND",DIM)):
-        t.text((x2,y),k,font=mono(14,'SemiBold'),fill=DIM); t.text((x2,y+px(17)),v,font=mono(18),fill=c); y+=px(40)
+def forecast_body_for(summer=False):
+    # summer (env_summer prefab): the weather roll is paused; it is sunny, which is not the same as clear (Incident #003)
+    def body(t):
+        y=px(204); bx=M+px(150); bw=px(300); bh=px(18)
+        states=(("RAIN",0,BLUE,False),("STORM",0,YELLOW,False),("CLEAR",None,DIM,False)) if summer else \
+               (("RAIN",90,BLUE,True),("STORM",10,YELLOW,False),("CLEAR",None,DIM,False))
+        for name,pct,col,active in states:
+            t.text((M,y),("> " if active else "  ")+name,font=mono(18),fill=WHITE if active else DIM)
+            t.rectangle([bx,y+px(4),bx+bw,y+px(4)+bh],outline=STEEL_L+(255,),width=px(1))
+            if pct is None:
+                t.text((bx+px(10),y+px(3)),"REMOVED - SEE INCIDENT #003",font=mono(13,'SemiBold'),fill=RED)
+                t.text((bx+bw+px(14),y),"  -",font=mono(18),fill=DIM)
+            else:
+                if pct: t.rectangle([bx+px(2),y+px(6),bx+px(2)+int((bw-px(4))*pct/100),y+px(2)+bh],fill=col+(255,))
+                t.text((bx+bw+px(14),y),f"{pct:>3}%",font=mono(18),fill=col if pct else DIM)
+            y+=px(40)
+        t.text((M,y+px(6)),"ROLL METHOD: PAUSED UNTIL NIGHTFALL" if summer else "ROLL METHOD: WEIGHTED RANDOM, EVERY ROUND",font=mono(14),fill=DIM)
+        x2=W//2+px(80); y=px(204)
+        info=(("CURRENT STATE","SUNNY (SEASON DEFAULT)",YELLOW),("PRECIP CELLS","STANDBY",DIM),("LIGHTNING","DISABLED",DIM),("NEXT REROLL","AFTER NIGHTFALL",DIM)) if summer else \
+             (("CURRENT STATE","RAIN",BLUE),("PRECIP CELLS","ALL ONLINE",TEAL),("LIGHTNING","RANDOM INTERVAL",TEAL),("NEXT REROLL","NEXT ROUND",DIM))
+        for k,v,c in info:
+            t.text((x2,y),k,font=mono(14,'SemiBold'),fill=DIM); t.text((x2,y+px(17)),v,font=mono(18),fill=c); y+=px(40)
+    return body
 screen("KD-WX-002","WEATHER PROGRAM","F.O.R.E.C.A.S.T.","FULLY OVERRIDDEN RANDOM EVENT & CLIMATE ACTIVATION SCHEDULING TERMINAL",
        [("FORECAST  RAIN",BLUE),("CONFIDENCE: 100%",TEAL)],
-       "WEATHER STATE PROBABILITIES (PER ROUND)",forecast_body,
+       "WEATHER STATE PROBABILITIES (PER ROUND)",forecast_body_for(False),
        ["STATES: RAIN / STORM","SURFACE STATUS: WET"],
        "FORECAST ACCURACY: 100%. WE MAKE IT!","noclip/kd-wx-002_forecast_1024x512.png")
+screen("KD-WX-002","WEATHER PROGRAM","F.O.R.E.C.A.S.T.","FULLY OVERRIDDEN RANDOM EVENT & CLIMATE ACTIVATION SCHEDULING TERMINAL",
+       [("FORECAST  SUNNY",YELLOW),("CONFIDENCE: 100%",TEAL)],
+       "WEATHER STATE PROBABILITIES (PER ROUND)",forecast_body_for(True),
+       ["STATES: NONE (SEASON DEFAULT)","SURFACE STATUS: DRY"],
+       "SUNNY. NOT CLEAR. THERE IS A DIFFERENCE.","noclip/kd-wx-002_forecast_summer_1024x512.png")
 
 # ---------- KD-WX-003 S.T.R.A.T.O.S. ----------
 def stratos_body_for(summer=False):
     # summer: S.T.R.A.T.O.S. is not broadcasting (env_summer prefab), the emitter is idle
     def body(t):
         y=px(204)
-        rows=(("[ OK ]",TEAL,"SEASON: SUMMER","DEFAULT",TEAL) if summer else ("[ OK ]",TEAL,"SEASON: SUMMER","LOADED",DIM),
-              ("[ OK ]",TEAL,"SEASON: NIGHT","LOADED",DIM) if summer else ("[LIVE]",BLUE,"SEASON: NIGHT","TRANSMITTING",BLUE),
-              ("[ -- ]",DIM,"SEASON: WINTER","NOT INSTALLED",YELLOW),("[ OK ]",TEAL,"ROOF ARRAY","2 ANT. + 2 DISHES",DIM),
-              ("[OFF ]",DIM,"EMITTER ANTENNA","IDLE",DIM) if summer else ("[ ON ]",TEAL,"EMITTER ANTENNA","ACTIVE",TEAL))
-        for tag,tc,name,val,vc in rows:
-            t.text((M,y),tag,font=mono(18),fill=tc); t.text((M+px(84),y),name,font=mono(18),fill=WHITE); t.text((M+px(300),y),val,font=mono(18),fill=vc); y+=px(33)
+        rows=(("OK",TEAL,"SEASON: SUMMER","DEFAULT",TEAL) if summer else ("OK",TEAL,"SEASON: SUMMER","LOADED",DIM),
+              ("OK",TEAL,"SEASON: NIGHT","LOADED",DIM) if summer else ("LIVE",BLUE,"SEASON: NIGHT","TRANSMITTING",BLUE),
+              ("--",DIM,"SEASON: WINTER","NOT INSTALLED",YELLOW),("OK",TEAL,"ROOF ARRAY","2 ANT. + 2 DISHES",DIM),
+              ("OFF",DIM,"EMITTER ANTENNA","IDLE",DIM) if summer else ("ON",TEAL,"EMITTER ANTENNA","ACTIVE",TEAL))
+        for tg,tc,name,val,vc in rows:
+            tag(t,M,y,tg,tc); t.text((M+px(84),y),name,font=mono(18),fill=WHITE); t.text((M+px(300),y),val,font=mono(18),fill=vc); y+=px(33)
         x2=W//2+px(110)
         t.text((x2,px(204)),"EMITTER OUTPUT",font=mono(14,'SemiBold'),fill=DIM)
         for i in range(12):
