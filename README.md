@@ -22,6 +22,7 @@ For the same content written as the company's own promo brochure, see [lore/broc
 | [`photos/`](./photos/) | the AI-generated photo grids used in the newspapers and notices, uncut and cut |
 | [`prompts/`](./prompts/) | the image prompts, so the photo series can be continued |
 | [`tools/`](./tools/) | the Python scripts that generate every image in `assets/` |
+| [`fonts/`](./fonts/) | Bebas Neue and Permanent Marker, the two fonts the scripts load, with their own licenses |
 
 **Where it appears:**
 

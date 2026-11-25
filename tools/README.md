@@ -16,5 +16,5 @@ The Python scripts that generate every image in [`../assets/`](../assets/). They
 | `posters.py` … `posters4.py`, `poster_milk.py`, `poster_milk_notice.py`, `poster_notices.py` | the posters and public notices |
 | `newspapers.py` … `newspapers5.py` | the newspaper front pages (`newspapers.py` holds the shared layout; `newspapers2.py` adds the photo version) |
 
-**Fonts:** Bebas Neue (SIL OFL, included), Permanent Marker (Apache 2.0, included), JetBrains Mono (SIL OFL), Inter (SIL OFL) and Liberation Serif (SIL OFL). The last three are loaded from the system font folders; install them or change the paths at the top of the scripts.
+**Fonts:** Bebas Neue (SIL OFL) and Permanent Marker (Apache 2.0), both included in [`fonts/`](../fonts/) with their licenses,, JetBrains Mono (SIL OFL), Inter (SIL OFL) and Liberation Serif (SIL OFL). The last three are loaded from the system font folders; install them or change the paths at the top of the scripts.
 **Cutting a photo grid:** split the grid image along its white gaps (rows and columns that are almost entirely white) into nine images named `photo_1.png` … `photo_9.png`, left to right, top to bottom.
