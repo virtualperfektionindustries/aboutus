@@ -486,6 +486,8 @@ Screen textures (1024×512, glowing monitors), in [`assets/screens/`](./assets/s
 | `kd-mcs-001_vigil_incident_1024x512.png` | V.I.G.I.L., one incident |
 | `kd-mcs-001_vigil_frame_1024x512.png` | V.I.G.I.L., empty frame for `point_worldtext` lines |
 
+Daniel K.'s workstation screen (2000×1084), `nonvis_workstation_hammer_2000x1084.png`: Hammer open on `de_dust2_long` at night, in the rain, with a power pole selected. Clearance level 3 (Hammer) at work: this is where the weather of Dust II Long is made. Use it on a monitor with **Self Illum**.
+
 Machine plates (1024×512, brushed metal, not glowing) for the cabinets, in [`assets/plates/`](./assets/plates/):
 
 | File | Machine | Detail |

@@ -23,6 +23,7 @@ Every image from [`../assets/`](../assets/), made square for the CS2 Material Ed
 | [`masks/mask_1536x1024_2048.png`](./masks/mask_1536x1024_2048.png) | 2 | LactoKd ads (`posters/`) |
 | [`masks/mask_1536x971_2048.png`](./masks/mask_1536x971_2048.png) | 2 | landscape OASIS posters (`posters/`) |
 | [`masks/mask_873x1536_2048.png`](./masks/mask_873x1536_2048.png) | 2 | portrait OASIS posters (`posters/`) |
+| [`masks/mask_2000x1084_2048.png`](./masks/mask_2000x1084_2048.png) | 1 | Daniel K.'s workstation screen (`screens/`) |
 | [`masks/mask_1024x768_1024.png`](./masks/mask_1024x768_1024.png) | 1 | shipping label (`signs/`) |
 
 To find the mask of an image: take the size from its file name (`poster_kdanium_1024x1536_color.png` → `masks/mask_1024x1536_2048.png`). If there is a `<name>_trans.png` next to it, use that instead.
