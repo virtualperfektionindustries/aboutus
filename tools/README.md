@@ -11,6 +11,7 @@ The Python scripts that generate every image in [`../assets/`](../assets/). They
 | `plates.py` | the machine plates |
 | `stickers.py` | the die-cut machine stickers |
 | `note_pool.py` | Daniel K.'s *"Where is the pool?"* sticky note |
+| `pictogram_sheets.py` | the six hazard pictograms on one texture, as a row and as a 3×2 grid |
 | `square.py` | the square, material-ready copies in `materials/` (`python3 tools/square.py assets materials`) |
 | `door_sign.py`, `emitter_sign.py`, `crates.py` | the NONVIS-001 door sign, the emitter warning, the KD-PX waybill and pictograms |
 | `posters.py` … `posters4.py`, `poster_milk.py`, `poster_milk_notice.py`, `poster_notices.py` | the posters and public notices |

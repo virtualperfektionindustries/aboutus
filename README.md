@@ -500,6 +500,7 @@ Facility door sign (1024×512, enamel sign with hazard border), in [`assets/sign
 KD-PX shipment crates, in [`assets/signs/`](./assets/signs/):
 - `kdpx_shipping_label_1024x768.png`: the waybill. From: *[CLASSIFIED]*, to: NONVIS-001 Oasis, contents (DynaRain™ ×22, Splash ×22, smoke), weight *"[?] (not found)"*, carrier *[REDACTED]*, signed by Daniel K., handling boxes (*"Keep dry (ironic)"*, *"Do not lick"*, *"Keep below 0 °K… wait, no."*), barcode `KDPX-404-0001-OASIS`, *"Priority: weather"*.
 - `kdpx_pictogram_<name>_512.png` (transparent, for decals): KD-PX hazard pictograms `kdanium`, `weather` (*contains weather*), `health-hazard` (*may cause deranking*), `radioactive` (*highly radioactive*), `cryogenic` (*keep below 0 °K*), `explosive`.
+- `kdpx_pictograms_row_4096x512.png` and `kdpx_pictograms_grid_2048x1024.png` (transparent): all six pictograms on one texture, in a single row (6×1) and in two rows of three (3×2). Both are already power-of-two, so their material versions in `materials/signs/` keep this size instead of being squared. Use them on a mesh with the same aspect ratio (8:1 for the row, 2:1 for the grid).
 
 Emitter warning sign (1024×1024), in [`assets/signs/`](./assets/signs/): `kd-wx-003_emitter_warning_1024x1024.png`, for the side emitter module of S.T.R.A.T.O.S.: *"KD-PX emitter · active emission"*, *"Do not inhale the weather."*, *"Do not block the outlet with your hand, your face or your coffee."*, *"The smoke is not a malfunction."*, minimum distance 2 m.
 
