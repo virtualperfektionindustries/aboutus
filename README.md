@@ -18,7 +18,7 @@ For the same content written as the company's own promo brochure, see [lore/broc
 | [`assets/signs/`](./assets/signs/) | facility door sign, emitter warning, KD-PX crate label and hazard pictograms |
 | [`assets/posters/`](./assets/posters/) | wall posters and public notices |
 | [`assets/newspapers/`](./assets/newspapers/) | newspaper front pages from the Great Global Milk Crisis |
-| [`materials/`](./materials/) | every asset as a square, power-of-two texture for the Material Editor, with a black and white transparency mask where needed |
+| [`materials/`](./materials/) | every asset as a square, power-of-two texture for the Material Editor; the black and white transparency masks are shared (`materials/masks/`) where images have the same size or shape |
 | [`photos/`](./photos/) | the AI-generated photo grids used in the newspapers and notices, uncut and cut |
 | [`prompts/`](./prompts/) | the image prompts, so the photo series can be continued |
 | [`tools/`](./tools/) | the Python scripts that generate every image in `assets/` |
@@ -453,8 +453,8 @@ OASIS facility posters, the recruitment and showcase posters of NONVIS-001 (code
 | :--- | :--- |
 | `poster_nonvis_oasis_beyond-sight_873x1536.png` | *"NONVIS-001 OASIS. A place beyond sight. A future in focus."*: the atrium with palms and a pool; Advanced Climate Simulation, Dynamic Environment Control, Unmatched Testing Conditions. Footer: *"We own the world. Literally."* |
 | `poster_nonvis_oasis_beyond-sight-wide_1536x971.png` | The landscape version of the atrium poster, with a status plate: *"FACILITY: NONVIS-001 · NAME: OASIS · STATUS: OPERATIONAL"* |
-| `poster_nonvis_oasis_facility_874x1536.png` | *"NONVIS-001 Facility OASIS. Research. Simulate. Optimize."*: the facility from outside, with its weather radar dome; Dynamic Weather Simulation, Atmospheric Control, KD-PX Research, Real-Time Data Analysis. *"A place of balance in an ever-changing world."* |
-| `poster_nonvis_oasis_facility-wide_1536x972.png` | The landscape version: *"A Controlled Environment for a Better Tomorrow."* |
+| `poster_nonvis_oasis_facility_873x1536.png` | *"NONVIS-001 Facility OASIS. Research. Simulate. Optimize."*: the facility from outside, with its weather radar dome; Dynamic Weather Simulation, Atmospheric Control, KD-PX Research, Real-Time Data Analysis. *"A place of balance in an ever-changing world."* |
+| `poster_nonvis_oasis_facility-wide_1536x971.png` | The landscape version: *"A Controlled Environment for a Better Tomorrow."* |
 
 ## Texts used in the rooms
 
