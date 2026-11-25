@@ -179,6 +179,12 @@ Every hidden room belongs to a numbered **Nonvis facility**. A facility can be d
 | **NONVIS-001** | "Oasis" | Operational. The hidden rooms of the Dust II variants (`de_dust2_long`, and later ones). The name: the facility that brings rain to the desert. Kdanium was discovered and first used here; today Oasis only receives KD-PX shipments like every other facility. |
 | NONVIS-002+ | | Under construction, or already there and you do not know about it. |
 
+### The atrium
+
+The OASIS recruitment posters show a sunlit atrium with palm trees, a pool and a radar dome. No employee has ever found the atrium. What they find behind the NONVIS-001 door is a run-down room packed with machines, a leaking roof and a lot of cables. The posters are, however, accurate in one respect: the facility is beyond sight.
+
+Daniel K. has asked about the pool in writing. A sticky note with *"Where is the pool?"* has been found on more than one OASIS poster. Nobody has answered it.
+
 ### Getting in
 
 The hidden rooms are outside the playable area and are meant to be reached with `noclip`. There is also an official way in, which only works with cheats enabled:
@@ -504,5 +510,7 @@ Machine stickers (die-cut, transparent PNG, about 1550×700), in [`assets/sticke
 | `kd-wx-002_forecast_sticker.png` | F.O.R.E.C.A.S.T. | *"Keep coffee away from the probability core."* | 0.90 / 0.10 |
 | `kd-wx-003_stratos_sticker.png` | S.T.R.A.T.O.S. | *"High output emitter. Do not kick the cabinet. Again."* | 2.71828182845 (e) |
 | `kd-mcs-001_vigil_sticker.png` | V.I.G.I.L. | *"This sticker is being monitored."* | 4.04040404040 |
+
+Daniel K.'s sticky note (1024×1024, transparent), `note_where-is-the-pool_1024.png`: *"Where is the pool?"*, underlined in red, signed *"- Daniel K."* Stick it on (or next to) an OASIS poster.
 
 To use a screen or plate on a map, copy the image into that map's addon (e.g. `<map_name>/materials/...`) and make a material from it. Turn on **Self Illum** for the screens so they glow in a dark room; the other textures do not need it. The stickers have a transparent background, so their material needs **Translucent** (or Alpha Test) enabled.
