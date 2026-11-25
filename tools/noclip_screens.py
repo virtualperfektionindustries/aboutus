@@ -76,23 +76,34 @@ screen("KD-WX-002","WEATHER PROGRAM","F.O.R.E.C.A.S.T.","FULLY OVERRIDDEN RANDOM
        "FORECAST ACCURACY: 100%. WE MAKE IT!","noclip/kd-wx-002_forecast_1024x512.png")
 
 # ---------- KD-WX-003 S.T.R.A.T.O.S. ----------
-def stratos_body(t):
-    y=px(204)
-    for tag,tc,name,val,vc in (("[ OK ]",TEAL,"SEASON: SUMMER","LOADED",DIM),("[LIVE]",BLUE,"SEASON: NIGHT","TRANSMITTING",BLUE),
-                               ("[ -- ]",DIM,"SEASON: WINTER","NOT INSTALLED",YELLOW),("[ OK ]",TEAL,"ROOF ARRAY","2 ANT. + 2 DISHES",DIM),
-                               ("[ ON ]",TEAL,"EMITTER ANTENNA","ACTIVE",TEAL)):
-        t.text((M,y),tag,font=mono(18),fill=tc); t.text((M+px(84),y),name,font=mono(18),fill=WHITE); t.text((M+px(300),y),val,font=mono(18),fill=vc); y+=px(33)
-    x2=W//2+px(110)
-    t.text((x2,px(204)),"EMITTER OUTPUT",font=mono(14,'SemiBold'),fill=DIM)
-    for i in range(12):
-        h=px(10+i*7); xx=x2+i*px(26); col=TEAL if i<8 else (YELLOW if i<10 else RED)
-        t.rectangle([xx,px(330)-h,xx+px(18),px(330)],fill=(col if i<9 else STEEL_L)+(255,))
-    t.text((x2,px(340)),"SIDE EMITTER  |  2.4 GW  |  41 C",font=mono(14),fill=TEAL)
+def stratos_body_for(summer=False):
+    # summer: S.T.R.A.T.O.S. is not broadcasting (env_summer prefab), the emitter is idle
+    def body(t):
+        y=px(204)
+        rows=(("[ OK ]",TEAL,"SEASON: SUMMER","DEFAULT",TEAL) if summer else ("[ OK ]",TEAL,"SEASON: SUMMER","LOADED",DIM),
+              ("[ OK ]",TEAL,"SEASON: NIGHT","LOADED",DIM) if summer else ("[LIVE]",BLUE,"SEASON: NIGHT","TRANSMITTING",BLUE),
+              ("[ -- ]",DIM,"SEASON: WINTER","NOT INSTALLED",YELLOW),("[ OK ]",TEAL,"ROOF ARRAY","2 ANT. + 2 DISHES",DIM),
+              ("[OFF ]",DIM,"EMITTER ANTENNA","IDLE",DIM) if summer else ("[ ON ]",TEAL,"EMITTER ANTENNA","ACTIVE",TEAL))
+        for tag,tc,name,val,vc in rows:
+            t.text((M,y),tag,font=mono(18),fill=tc); t.text((M+px(84),y),name,font=mono(18),fill=WHITE); t.text((M+px(300),y),val,font=mono(18),fill=vc); y+=px(33)
+        x2=W//2+px(110)
+        t.text((x2,px(204)),"EMITTER OUTPUT",font=mono(14,'SemiBold'),fill=DIM)
+        for i in range(12):
+            h=px(10+i*7); xx=x2+i*px(26); col=TEAL if i<8 else (YELLOW if i<10 else RED)
+            t.rectangle([xx,px(330)-h,xx+px(18),px(330)],fill=(STEEL_L if summer or i>=9 else col)+(255,))
+        t.text((x2,px(340)),"SIDE EMITTER  |  0.0 GW  |  22 C" if summer else "SIDE EMITTER  |  2.4 GW  |  41 C",font=mono(14),fill=DIM if summer else TEAL)
+    return body
 screen("KD-WX-003","WEATHER PROGRAM","S.T.R.A.T.O.S.","SEASONAL TRANSMISSION & REGIONAL ATMOSPHERE TAKEOVER SYSTEM",
        [("CORE STATUS  ONLINE",TEAL),("UPLINK: KD-WX-001 / 002",DIM)],
-       "SEASON MODULES",stratos_body,
+       "SEASON MODULES",stratos_body_for(False),
        ['FORMERLY "RAINMAKER Mk II"'],
        "KD-PX DYNARAIN IS LOADED, EMITTING...","noclip/kd-wx-003_stratos_1024x512.png")
+# the same screen for the env_summer prefab: no broadcast, emitter idle
+screen("KD-WX-003","WEATHER PROGRAM","S.T.R.A.T.O.S.","SEASONAL TRANSMISSION & REGIONAL ATMOSPHERE TAKEOVER SYSTEM",
+       [("CORE STATUS  STANDBY",YELLOW),("UPLINK: KD-WX-001 / 002",DIM)],
+       "SEASON MODULES",stratos_body_for(True),
+       ['FORMERLY "RAINMAKER Mk II"'],
+       "EMITTER IDLE. WAITING FOR NIGHTFALL...","noclip/kd-wx-003_stratos_summer_1024x512.png")
 
 # ---------- KD-MCS-001 V.I.G.I.L. ----------
 ASSETS=[f"LMP-{i:03d}" for i in range(1,7)]

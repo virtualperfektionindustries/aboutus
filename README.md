@@ -484,6 +484,7 @@ Screen textures (1024×512, glowing monitors), in [`assets/screens/`](./assets/s
 | `kd-wx-001_atmos_1024x512.png` | A.T.M.O.S. |
 | `kd-wx-002_forecast_1024x512.png` | F.O.R.E.C.A.S.T. |
 | `kd-wx-003_stratos_1024x512.png` | S.T.R.A.T.O.S. |
+| `kd-wx-003_stratos_summer_1024x512.png` | S.T.R.A.T.O.S. for the `env_summer` prefab: core on standby, emitter idle (0.0 GW), *"Emitter idle. Waiting for nightfall..."* |
 | `kd-mcs-001_vigil_1024x512.png` | V.I.G.I.L., all assets online |
 | `kd-mcs-001_vigil_incident_1024x512.png` | V.I.G.I.L., one incident |
 | `kd-mcs-001_vigil_frame_1024x512.png` | V.I.G.I.L., empty frame for `point_worldtext` lines |
