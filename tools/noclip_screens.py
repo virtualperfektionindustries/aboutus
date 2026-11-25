@@ -126,7 +126,8 @@ screen("KD-WX-003","WEATHER PROGRAM","S.T.R.A.T.O.S.","SEASONAL TRANSMISSION & R
 
 # ---------- KD-MCS-001 V.I.G.I.L. ----------
 ASSETS=[f"LMP-{i:03d}" for i in range(1,7)]
-def vigil_body(fail=(),frame=False):
+def vigil_body(fail=(),frame=False,summer=False):
+    # summer (env_summer prefab): daylight, the street lights are on standby
     def body(t):
         y0=px(200); dy=px(27)
         if frame:
@@ -138,7 +139,7 @@ def vigil_body(fail=(),frame=False):
                 t.text((M,y),"[FAIL]" if bad else "[ OK ]",font=mono(16),fill=RED if bad else TEAL)
                 t.text((M+px(72),y),a,font=mono(16),fill=WHITE)
                 t.text((M+px(160),y),"STREET LIGHT",font=mono(16),fill=DIM)
-                t.text((M+px(300),y),"OFFLINE - VANDALISM REPORTED" if bad else "ONLINE",font=mono(16),fill=RED if bad else DIM)
+                t.text((M+px(300),y),"OFFLINE - VANDALISM REPORTED" if bad else ("STANDBY - DAYLIGHT" if summer else "ONLINE"),font=mono(16),fill=RED if bad else DIM)
         # event log on the right
         x2=M+px(620); x3=W-M
         t.text((x2,y0-px(28)),"EVENT LOG",font=mono(14,'SemiBold'),fill=YELLOW)
@@ -146,14 +147,15 @@ def vigil_body(fail=(),frame=False):
         if not frame:
             lines=[("R01 00:00","SYSTEM ONLINE",DIM),("R01 00:00","ASSET SCAN 6/6 OK",DIM)]
             if fail: lines+= [("R03 01:24",f"{fail[0]} VANDALISM",RED),("R03 01:24","REPAIR QUEUED",YELLOW)]
+            if summer: lines+= [("R01 00:00","DAYLIGHT: LIGHTS ON STANDBY",TEAL),("R01 00:00","SUN: NOT A MONITORED ASSET",DIM)]
             for i,(ts,msg,c) in enumerate(lines):
                 yy=y0+px(6)+i*px(24); t.text((x2+px(10),yy),ts,font=mono(13,'SemiBold'),fill=DIM); t.text((x2+px(100),yy),msg,font=mono(13),fill=c)
     return body
-for name,fail,frame in (("",(),False),("_incident",("LMP-002",),False),("_frame",(),True)):
+for name,fail,frame,summer in (("",(),False,False),("_incident",("LMP-002",),False,False),("_frame",(),True,False),("_summer",(),False,True)):
     nf=len(fail)
     right=[("LIVE FEED",TEAL)] if frame else [(f"ASSETS ONLINE  {6-nf:02d}/06",TEAL if not nf else YELLOW),("SYSTEM STATUS: "+("NOMINAL" if not nf else "INCIDENT"),TEAL if not nf else RED)]
     screen("KD-MCS-001","MAP CONTROL PROGRAM","V.I.G.I.L.","VANDALISM INCIDENT & GENERAL INFRASTRUCTURE LOG",
-           right,"MONITORED ASSETS",vigil_body(fail,frame),
+           right,"MONITORED ASSETS",vigil_body(fail,frame,summer),
            ["AUTO-REPAIR SCHEDULED: NEXT ROUND","REPORT ID FORMAT: KD-MCS-001/<TYPE>-<NO>"],
            "EVERYTHING IS LOGGED. EVERYTHING!",f"noclip/kd-mcs-001_vigil{name}_1024x512.png")
 print('ok')

@@ -490,6 +490,7 @@ Screen textures (1024×512, glowing monitors), in [`assets/screens/`](./assets/s
 | `kd-mcs-001_vigil_1024x512.png` | V.I.G.I.L., all assets online |
 | `kd-mcs-001_vigil_incident_1024x512.png` | V.I.G.I.L., one incident |
 | `kd-mcs-001_vigil_frame_1024x512.png` | V.I.G.I.L., empty frame for `point_worldtext` lines |
+| `kd-mcs-001_vigil_summer_1024x512.png` | V.I.G.I.L. for the `env_summer` prefab: all six street lights on standby in daylight; event log: *"Sun: not a monitored asset"* |
 
 Daniel K.'s workstation screen (2000×1084), `nonvis_workstation_hammer_2000x1084.png`: Hammer open on `de_dust2_long` at night, in the rain, with a power pole selected. Clearance level 3 (Hammer) at work: this is where the weather of Dust II Long is made. Use it on a monitor with **Self Illum**.
 
