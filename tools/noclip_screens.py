@@ -159,3 +159,38 @@ for name,fail,frame,summer in (("",(),False,False),("_incident",("LMP-002",),Fal
            ["AUTO-REPAIR SCHEDULED: NEXT ROUND","REPORT ID FORMAT: KD-MCS-001/<TYPE>-<NO>"],
            "EVERYTHING IS LOGGED. EVERYTHING!",f"noclip/kd-mcs-001_vigil{name}_1024x512.png")
 print('ok')
+
+# ---------- KD-MCS-001 V.I.G.I.L. screensaver ----------
+# The Nonvis eye bounces around the idle screen (DVD style), with a fading trail.
+# Needs logos/nonvis-division_logo_icon_1024.png in the working folder.
+def vigil_screensaver(out):
+    im=Image.new('RGBA',(W,H),(6,9,11,255))
+    logo=Image.open('logos/nonvis-division_logo_icon_1024.png').convert('RGBA')
+    logo=logo.crop(logo.getchannel('A').getbbox())
+    L=px(190); logo=logo.resize((round(logo.width*L/logo.height),L),Image.LANCZOS)
+    lum=logo.convert('L'); a=logo.getchannel('A')
+    from PIL import ImageChops
+    mask=ImageChops.multiply(a,lum.point(lambda v:min(255,60+v)))       # bright lines strong, dark fill faint
+    def stamp(layer,x,y,alpha,col):
+        sol=Image.new('RGBA',logo.size,col+(255,)); m=mask.point(lambda v:int(v*alpha))
+        layer.paste(sol,(x,y),m)
+    txt=Image.new('RGBA',(W,H),(0,0,0,0)); t=ImageDraw.Draw(txt)
+    # path: drifting from the top-left towards the bottom-right corner
+    trail=[(px(250),px(40)),(px(360),px(85)),(px(470),px(130)),(px(580),px(175))]
+    for i,(x,y) in enumerate(trail): stamp(txt,x,y,0.10+0.08*i,TEAL)
+    stamp(txt,px(690),px(220),1.0,TEAL)
+    t.text((M,px(26)),"KD-MCS-001",font=mono(18),fill=YELLOW)
+    t.text((M+t.textlength("KD-MCS-001  ",font=mono(18)),px(30)),"V.I.G.I.L. · SCREEN SAVER",font=mono(13,'SemiBold'),fill=DIM)
+    s_="IDLE 04:04:04"; t.text((W-M-t.textlength(s_,font=mono(13,'SemiBold')),px(30)),s_,font=mono(13,'SemiBold'),fill=DIM)
+    t.text((M,px(424)),"SCREEN IDLE. MONITORING IS NOT.",font=mono(20),fill=PINK)
+    jw=t.textlength("SCREEN IDLE. MONITORING IS NOT.",font=mono(20))
+    t.rectangle([M+jw+px(14),px(426),M+jw+px(26),px(448)],fill=PINK+(255,))
+    t.text((M,px(458)),"PRESS ANY KEY TO RESUME. WE ALREADY SAW IT.",font=mono(13,'SemiBold'),fill=DIM)
+    im=Image.alpha_composite(im,txt.filter(ImageFilter.GaussianBlur(6*S))); im=Image.alpha_composite(im,txt)
+    sl=Image.new('L',(W,H),0); sd=ImageDraw.Draw(sl)
+    for y in range(0,H,px(3)): sd.line([(0,y),(W,y)],fill=60,width=S)
+    dk=Image.new('RGBA',(W,H),(0,0,0,0)); dk.putalpha(sl); im=Image.alpha_composite(im,dk)
+    vg=Image.new('L',(W,H),255); ImageDraw.Draw(vg).rounded_rectangle([px(-40),px(-40),W+px(40),H+px(40)],radius=px(220),fill=0)
+    vo=Image.new('RGBA',(W,H),(0,0,0,0)); vo.putalpha(vg.filter(ImageFilter.GaussianBlur(70*S)).point(lambda v:int(v*0.8))); im=Image.alpha_composite(im,vo)
+    im.resize((1024,512),Image.LANCZOS).convert('RGB').save(out,optimize=True)
+vigil_screensaver("noclip/kd-mcs-001_vigil_screensaver_1024x512.png")

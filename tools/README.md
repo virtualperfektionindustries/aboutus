@@ -7,7 +7,7 @@ The Python scripts that generate every image in [`../assets/`](../assets/). They
 | Script | Output |
 | :--- | :--- |
 | `brand_logos.py` | the VPK Industries and Nonvis Division logos (`vpk_logos.py`: the three early concepts) |
-| `noclip_screens.py` | the monitor screens of A.T.M.O.S., F.O.R.E.C.A.S.T., S.T.R.A.T.O.S. and V.I.G.I.L. |
+| `noclip_screens.py` | the monitor screens of A.T.M.O.S., F.O.R.E.C.A.S.T., S.T.R.A.T.O.S. and V.I.G.I.L. (night and summer versions, V.I.G.I.L. screen saver; the screen saver needs `logos/nonvis-division_logo_icon_1024.png` in the working folder) |
 | `plates.py` | the machine plates |
 | `stickers.py` | the die-cut machine stickers |
 | `note_pool.py` | Daniel K.'s *"Where is the pool?"* sticky note |
