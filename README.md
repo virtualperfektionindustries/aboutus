@@ -192,10 +192,10 @@ The hidden rooms are outside the playable area and are meant to be reached with 
 
 ```
 sv_cheats 1
-ent_fire sudo_promote_to_nonvis_employee Teleport
+ent_fire sudo_promote_to_nonvis_employee Trigger
 ```
 
-`sudo_promote_to_nonvis_employee` is a `point_teleport` inside the facility (*Entity To Teleport*: `!player`). The name is the joke: VPK Industries is not hiring, unless you have `sudo`. The way back out does not need cheats: a `func_button` on the inside of the door (*Use Activates*) teleports the player back to the playable area.
+`sudo_promote_to_nonvis_employee` is a `logic_relay`. It teleports the player into the facility (through the `point_teleport` `NONVIS-001.Teleport`, *Entity To Teleport*: `!player`) and makes V.I.G.I.L. log the new employee. The name is the joke: VPK Industries is not hiring, unless you have `sudo`. The way back out does not need cheats: a `trigger_teleport` at the top of the ladder takes the player back to the playable area, and V.I.G.I.L. logs *"Visitor left. Memory wipe queued."*
 
 ## Premium content
 
