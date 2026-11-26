@@ -338,6 +338,15 @@ Newspaper front pages from the crisis (1024×1448, in [`assets/newspapers/`](./a
 | `newspaper_evening-moo_milk-rationed_1024x1448.png` | *The Evening Moo*: "Milk rationed", one glass per person per day |
 | `newspaper_daily-pint_vpk-denies-everything_1024x1448.png` | *The Daily Pint*: "VPK denies everything", a spokesperson with a glass of milk on the podium |
 
+Four more worn front pages from the first weeks of the crisis, cut out with a transparent edge (1024 wide, each with its own height):
+
+| File | Front page |
+| :--- | :--- |
+| `newspaper_evening-moo_ration-cheats-photo_1024x1580.png` | *The Evening Moo*, Vol. 404 No. 5: "Ration cheats return in disguise", a man in a hat, sunglasses and a fake moustache with a glass of milk; a second take on the page above |
+| `newspaper_daily-pint_milk-shortage-worsens_1024x1589.png` | *The Daily Pint*, No. 6: "Milk shortage worsens", a "MILK OUT OF STOCK" sign; *"This is a precedented situation."* VPK Industries assures the public that *"solutions are already in development."* |
+| `newspaper_daily-pint_great-global-milk-crisis_1024x1523.png` | *The Daily Pint*, No. 7: "The Great Global Milk Crisis", a container ship in port, the crisis enters its second week |
+| `newspaper_daily-pint_milk-prices-record-high_1024x1533.png` | *The Daily Pint*, No. 8: "Milk prices reach record high", a price sign: milk $4.99, ↑ +32% |
+
 A worn, stacked copy of a world paper (1024×1412, with a transparent edge), `newspaper_global-times_great-global-milk-crisis_1024x1412.png`: *The Global Times*, Monday, 14 July 2003, "The Great Global Milk Crisis: Milk prices skyrocket as global supply collapses", an empty supermarket shelf with a "MILK OUT OF STOCK" sign, and a side column: "Is it linked to KD-PX? While the connection remains unconfirmed, sources within research circles suggest a possible link to the controversial KD-PX element."
 
 ### What comes next

@@ -31,6 +31,10 @@ To find the mask of an image: take the size from its file name (`poster_kdanium_
 ## Own masks
 
 - `logos/nonvis-division_logo_icon_1024_trans.png`
+- `newspapers/newspaper_daily-pint_great-global-milk-crisis_1024x1523_trans.png`
+- `newspapers/newspaper_daily-pint_milk-prices-record-high_1024x1533_trans.png`
+- `newspapers/newspaper_daily-pint_milk-shortage-worsens_1024x1589_trans.png`
+- `newspapers/newspaper_evening-moo_ration-cheats-photo_1024x1580_trans.png`
 - `newspapers/newspaper_global-times_great-global-milk-crisis_1024x1412_trans.png`
 - `plates/kd-wx-003_stratos_datasheet_1024x568_trans.png`
 - `plates/kd-wx-003_stratos_plate-photo_1024x601_trans.png`
