@@ -134,10 +134,8 @@ def vigil_body(fail=(),frame=False,summer=False):
     # summer (env_summer prefab): daylight, the street lights are on standby
     def body(t):
         y0=px(200); dy=px(27)
-        if frame:
-            for r in range(6):
-                y=y0+r*dy; t.rectangle([M,y-px(3),M+px(560),y+px(22)],outline=STEEL_L+(255,),width=1)
-        else:
+        if frame: return   # empty middle: the lamp lines are written in-game with point_worldtext
+        if True:
             for r,a in enumerate(ASSETS):
                 y=y0+r*dy; bad=a in fail
                 t.text((M,y),"[FAIL]" if bad else "[ OK ]",font=mono(16),fill=RED if bad else TEAL)
@@ -159,7 +157,7 @@ for name,fail,frame,summer in (("",(),False,False),("_incident",("LMP-002",),Fal
     nf=len(fail)
     right=[("LIVE FEED",TEAL)] if frame else [(f"ASSETS ONLINE  {6-nf:02d}/06",TEAL if not nf else YELLOW),("SYSTEM STATUS: "+("NOMINAL" if not nf else "INCIDENT"),TEAL if not nf else RED)]
     screen("KD-MCS-001","MAP CONTROL PROGRAM","V.I.G.I.L.","VANDALISM INCIDENT & GENERAL INFRASTRUCTURE LOG",
-           right,"MONITORED ASSETS",vigil_body(fail,frame,summer),
+           right,"" if frame else "MONITORED ASSETS",vigil_body(fail,frame,summer),
            ["AUTO-REPAIR SCHEDULED: NEXT ROUND","REPORT ID FORMAT: KD-MCS-001/<TYPE>-<NO>"],
            "EVERYTHING IS LOGGED. EVERYTHING!",f"noclip/kd-mcs-001_vigil{name}_1024x512.png")
 print('ok')

@@ -498,7 +498,7 @@ Screen textures (1024×512, glowing monitors), in [`assets/screens/`](./assets/s
 | `kd-wx-003_stratos_summer_1024x512.png` | S.T.R.A.T.O.S. for the `env_summer` prefab: core on standby, emitter idle (0.0 GW), *"Emitter idle. Waiting for nightfall..."* |
 | `kd-mcs-001_vigil_1024x512.png` | V.I.G.I.L., all assets online |
 | `kd-mcs-001_vigil_incident_1024x512.png` | V.I.G.I.L., one incident |
-| `kd-mcs-001_vigil_frame_1024x512.png` | V.I.G.I.L., empty frame for `point_worldtext` lines |
+| `kd-mcs-001_vigil_frame_1024x512.png` | V.I.G.I.L. frame: header and footer only, the middle is a plain empty background, so every lamp can be logged separately in-game with `point_worldtext` lines |
 | `kd-mcs-001_vigil_summer_1024x512.png` | V.I.G.I.L. for the `env_summer` prefab: all six street lights on standby in daylight; event log: *"Sun: not a monitored asset"* |
 | `kd-mcs-001_vigil_screensaver_1024x512.png` | V.I.G.I.L. screen saver: the Nonvis eye drifting across the idle screen with a fading trail; *"Screen idle. Monitoring is not."* |
 
