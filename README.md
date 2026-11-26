@@ -63,7 +63,7 @@ formerly BSP Industries (Binary Space Partitioning Industries)
 | Code | Name | Stands for | Controls | Slogan |
 | :--- | :--- | :--- | :--- | :--- |
 | **KD-WX-001** | **A.T.M.O.S.** | *Atmospheric Tuning & Mood Override Station* | the map's environment entities: `light_environment`, `env_sky`, `env_cubemap_fog`, `env_wind`, `post_processing_volume`, `info_map_parameters` | *"Nature is a setting."* |
-| **KD-WX-002** | **F.O.R.E.C.A.S.T.** | *Fully Overridden Random Event & Climate Activation Scheduling Terminal* | the weather state rolled every round (rain 90% / storm 10%; clear weather was lost in Incident Report #003) and the lightning | *"Forecast accuracy: 100%. We make it!"* |
+| **KD-WX-002** | **F.O.R.E.C.A.S.T.** | *Fully Overridden Random Event & Climate Activation Scheduling Terminal* | the weather state rolled every round (rain 90% / storm 10%; clear weather was lost in Incident Report #003) and the lightning. The storm state is currently **under maintenance**, so every round is rain, with lightning at variable intervals | *"Forecast accuracy: 100%. We make it!"* |
 | **KD-WX-003** | **S.T.R.A.T.O.S.** | *Seasonal Transmission & Regional Atmosphere Takeover System* | the central server cabinet that "broadcasts" the seasons (summer, night, later winter). On its roof: 2 antennas and 2 satellite dishes, purely for looks (in the lore: *"classified"*). On its side: the **emitter module**, where a smoke particle shows the KD-PX being released. | *"Do not kick the server. Again."* |
 | **KD-MCS-001** | **V.I.G.I.L.** | *Vandalism Incident & General Infrastructure Log* | monitors the interactive parts of the map (e.g. street lights that can be shot out, later doors, alarms, ...) | *"Everything is logged. Everything!"* |
 
@@ -482,9 +482,9 @@ Screen textures (1024×512, glowing monitors), in [`assets/screens/`](./assets/s
 | File | Machine |
 | :--- | :--- |
 | `kd-wx-001_atmos_1024x512.png` | A.T.M.O.S. |
-| `kd-wx-002_forecast_1024x512.png` | F.O.R.E.C.A.S.T. |
-| `kd-wx-001_atmos_summer_1024x512.png` | A.T.M.O.S. for the `env_summer` prefab: active profile `ENV_SUMMER`, `ENV_NIGHT` on standby |
-| `kd-wx-002_forecast_summer_1024x512.png` | F.O.R.E.C.A.S.T. for the `env_summer` prefab: forecast *sunny*, rain and storm 0%, the roll paused until nightfall; clear weather is still removed (Incident #003): *"Sunny. Not clear. There is a difference."* |
+| `kd-wx-002_forecast_1024x512.png` | F.O.R.E.C.A.S.T.: rain 100%, lightning at variable intervals, the storm state *under maintenance* |
+| `kd-wx-001_atmos_summer_1024x512.png` | A.T.M.O.S. for the `env_summer` prefab: active profile `ENV_SUMMER`, `ENV_NIGHT` on standby. On both A.T.M.O.S. screens `POST_PROCESSING` is `N/A` (not linked, 5 / 6 entities), because the prefabs have no `post_processing_volume` |
+| `kd-wx-002_forecast_summer_1024x512.png` | F.O.R.E.C.A.S.T. for the `env_summer` prefab: the machine is switched off, a dark screen with a faint glass reflection |
 | `kd-wx-003_stratos_1024x512.png` | S.T.R.A.T.O.S. |
 | `kd-wx-003_stratos_summer_1024x512.png` | S.T.R.A.T.O.S. for the `env_summer` prefab: core on standby, emitter idle (0.0 GW), *"Emitter idle. Waiting for nightfall..."* |
 | `kd-mcs-001_vigil_1024x512.png` | V.I.G.I.L., all assets online |

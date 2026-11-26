@@ -46,53 +46,57 @@ def screen(code,program,title,subtitle,right,section,body,footer,joke,out):
 
 # ---------- KD-WX-001 A.T.M.O.S. ----------
 def atmos_body(t):
-    items=[("LIGHT_ENVIRONMENT","SUN / MOON"),("ENV_SKY","SKYBOX"),("ENV_CUBEMAP_FOG","FOG"),
-           ("ENV_WIND","WIND"),("POST_PROCESSING","COLOR GRADE"),("INFO_MAP_PARAMS","MAP PARAMETERS")]
-    for i,(n,v) in enumerate(items):
+    # POST_PROCESSING: N/A, the prefabs only hold an empty mesh with the post-process texture, no post_processing_volume entity
+    items=[("OK","LIGHT_ENVIRONMENT","SUN / MOON"),("OK","ENV_SKY","SKYBOX"),("OK","ENV_CUBEMAP_FOG","FOG"),
+           ("OK","ENV_WIND","WIND"),("N/A","POST_PROCESSING","NOT LINKED"),("OK","INFO_MAP_PARAMS","MAP PARAMETERS")]
+    for i,(st,n,v) in enumerate(items):
         x=M+(0 if i<3 else px(480)); y=px(204+(i%3)*40)
-        t.text((x,y),"[ OK ]",font=mono(18),fill=TEAL); t.text((x+px(84),y),n,font=mono(18),fill=WHITE); t.text((x+px(300),y),v,font=mono(18),fill=DIM)
+        tag(t,x,y,st,TEAL if st=="OK" else YELLOW); t.text((x+px(84),y),n,font=mono(18),fill=WHITE); t.text((x+px(300),y),v,font=mono(18),fill=DIM)
 for summer in (False,True):
     screen("KD-WX-001","WEATHER PROGRAM","A.T.M.O.S.","ATMOSPHERIC TUNING & MOOD OVERRIDE STATION",
            [("ACTIVE PROFILE  ENV_SUMMER",YELLOW),("STANDBY: ENV_NIGHT",DIM)] if summer else
            [("ACTIVE PROFILE  ENV_NIGHT",BLUE),("STANDBY: ENV_SUMMER",DIM)],
-           "MAP ENVIRONMENT: 6 / 6 ENTITIES LINKED",atmos_body,
+           "MAP ENVIRONMENT: 5 / 6 ENTITIES LINKED",atmos_body,
            ["ENVIRONMENT SYNC: COMPLETE","PROFILE SWITCH REQUIRES FULL REBUILD"],
            "NATURE IS A SETTING.","noclip/kd-wx-001_atmos%s_1024x512.png"%("_summer" if summer else ""))
 
 # ---------- KD-WX-002 F.O.R.E.C.A.S.T. ----------
-def forecast_body_for(summer=False):
-    # summer (env_summer prefab): the weather roll is paused; it is sunny, which is not the same as clear (Incident #003)
-    def body(t):
-        y=px(204); bx=M+px(150); bw=px(300); bh=px(18)
-        states=(("RAIN",0,BLUE,False),("STORM",0,YELLOW,False),("CLEAR",None,DIM,False)) if summer else \
-               (("RAIN",90,BLUE,True),("STORM",10,YELLOW,False),("CLEAR",None,DIM,False))
-        for name,pct,col,active in states:
-            t.text((M,y),("> " if active else "  ")+name,font=mono(18),fill=WHITE if active else DIM)
-            t.rectangle([bx,y+px(4),bx+bw,y+px(4)+bh],outline=STEEL_L+(255,),width=px(1))
-            if pct is None:
-                t.text((bx+px(10),y+px(3)),"REMOVED - SEE INCIDENT #003",font=mono(13,'SemiBold'),fill=RED)
-                t.text((bx+bw+px(14),y),"  -",font=mono(18),fill=DIM)
-            else:
-                if pct: t.rectangle([bx+px(2),y+px(6),bx+px(2)+int((bw-px(4))*pct/100),y+px(2)+bh],fill=col+(255,))
-                t.text((bx+bw+px(14),y),f"{pct:>3}%",font=mono(18),fill=col if pct else DIM)
-            y+=px(40)
-        t.text((M,y+px(6)),"ROLL METHOD: PAUSED UNTIL NIGHTFALL" if summer else "ROLL METHOD: WEIGHTED RANDOM, EVERY ROUND",font=mono(14),fill=DIM)
-        x2=W//2+px(80); y=px(204)
-        info=(("CURRENT STATE","SUNNY (SEASON DEFAULT)",YELLOW),("PRECIP CELLS","STANDBY",DIM),("LIGHTNING","DISABLED",DIM),("NEXT REROLL","AFTER NIGHTFALL",DIM)) if summer else \
-             (("CURRENT STATE","RAIN",BLUE),("PRECIP CELLS","ALL ONLINE",TEAL),("LIGHTNING","RANDOM INTERVAL",TEAL),("NEXT REROLL","NEXT ROUND",DIM))
-        for k,v,c in info:
-            t.text((x2,y),k,font=mono(14,'SemiBold'),fill=DIM); t.text((x2,y+px(17)),v,font=mono(18),fill=c); y+=px(40)
-    return body
+# Current state of the night prefab: rain every round, lightning at variable intervals, the storm state under maintenance.
+def forecast_body(t):
+    y=px(204); bx=M+px(150); bw=px(300); bh=px(18)
+    for name,pct,col,active,note,nc in (("RAIN",100,BLUE,True,None,None),("STORM",None,YELLOW,False,"UNDER MAINTENANCE",YELLOW),
+                                         ("CLEAR",None,DIM,False,"REMOVED - SEE INCIDENT #003",RED)):
+        t.text((M,y),("> " if active else "  ")+name,font=mono(18),fill=WHITE if active else DIM)
+        t.rectangle([bx,y+px(4),bx+bw,y+px(4)+bh],outline=STEEL_L+(255,),width=px(1))
+        if pct is None:
+            t.text((bx+px(10),y+px(3)),note,font=mono(13,'SemiBold'),fill=nc)
+            t.text((bx+bw+px(14),y),"  -",font=mono(18),fill=DIM)
+        else:
+            t.rectangle([bx+px(2),y+px(6),bx+px(2)+int((bw-px(4))*pct/100),y+px(2)+bh],fill=col+(255,))
+            t.text((bx+bw+px(14),y),f"{pct:>3}%",font=mono(18),fill=col)
+        y+=px(40)
+    t.text((M,y+px(6)),"ROLL METHOD: SINGLE STATE UNTIL STORM RETURNS",font=mono(14),fill=DIM)
+    x2=W//2+px(80); y=px(204)
+    for k,v,c in (("CURRENT STATE","RAIN",BLUE),("PRECIP CELLS","ALL ONLINE",TEAL),("LIGHTNING","VARIABLE INTERVAL",TEAL),("STORM MODULE","UNDER MAINTENANCE",YELLOW)):
+        t.text((x2,y),k,font=mono(14,'SemiBold'),fill=DIM); t.text((x2,y+px(17)),v,font=mono(18),fill=c); y+=px(40)
 screen("KD-WX-002","WEATHER PROGRAM","F.O.R.E.C.A.S.T.","FULLY OVERRIDDEN RANDOM EVENT & CLIMATE ACTIVATION SCHEDULING TERMINAL",
        [("FORECAST  RAIN",BLUE),("CONFIDENCE: 100%",TEAL)],
-       "WEATHER STATE PROBABILITIES (PER ROUND)",forecast_body_for(False),
-       ["STATES: RAIN / STORM","SURFACE STATUS: WET"],
+       "WEATHER STATE PROBABILITIES (PER ROUND)",forecast_body,
+       ["STATES: RAIN (STORM UNDER MAINTENANCE)","SURFACE STATUS: WET"],
        "FORECAST ACCURACY: 100%. WE MAKE IT!","noclip/kd-wx-002_forecast_1024x512.png")
-screen("KD-WX-002","WEATHER PROGRAM","F.O.R.E.C.A.S.T.","FULLY OVERRIDDEN RANDOM EVENT & CLIMATE ACTIVATION SCHEDULING TERMINAL",
-       [("FORECAST  SUNNY",YELLOW),("CONFIDENCE: 100%",TEAL)],
-       "WEATHER STATE PROBABILITIES (PER ROUND)",forecast_body_for(True),
-       ["STATES: NONE (SEASON DEFAULT)","SURFACE STATUS: DRY"],
-       "SUNNY. NOT CLEAR. THERE IS A DIFFERENCE.","noclip/kd-wx-002_forecast_summer_1024x512.png")
+
+# For the env_summer prefab F.O.R.E.C.A.S.T. is simply switched off: a dark, powered-off screen.
+def screen_off(out):
+    im=Image.new('RGBA',(W,H),(7,9,10,255)); d=ImageDraw.Draw(im)
+    gl=Image.new('L',(W,H),0); g=ImageDraw.Draw(gl)
+    g.polygon([(px(120),0),(px(430),0),(px(140),H),(px(-170),H)],fill=22)   # soft glass reflection
+    g.polygon([(px(470),0),(px(540),0),(px(250),H),(px(180),H)],fill=12)
+    gl=gl.filter(ImageFilter.GaussianBlur(30*S))
+    ref=Image.new('RGBA',(W,H),(180,200,205,0)); ref.putalpha(gl); im=Image.alpha_composite(im,ref)
+    vg=Image.new('L',(W,H),255); ImageDraw.Draw(vg).rounded_rectangle([px(-40),px(-40),W+px(40),H+px(40)],radius=px(220),fill=0)
+    vo=Image.new('RGBA',(W,H),(0,0,0,0)); vo.putalpha(vg.filter(ImageFilter.GaussianBlur(70*S)).point(lambda v:int(v*0.8))); im=Image.alpha_composite(im,vo)
+    im.resize((1024,512),Image.LANCZOS).convert('RGB').save(out,optimize=True)
+screen_off("noclip/kd-wx-002_forecast_summer_1024x512.png")
 
 # ---------- KD-WX-003 S.T.R.A.T.O.S. ----------
 def stratos_body_for(summer=False):
